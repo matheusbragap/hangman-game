@@ -2,6 +2,9 @@
 /*                  ELEMENTOS DOM                     */
 /* ================================================== */
 
+const nomeJogador = localStorage.getItem('nomeJogador') || 'Convidado';
+console.log(`Bem-vindo, ${nomeJogador}!`);
+
 const palavraContainer = document.getElementById('palavra-container');
 const tecladoContainer = document.getElementById('teclado-container');
 const categoriaTexto = document.getElementById('categoria-texto');
@@ -44,13 +47,30 @@ function gerarTeclado() {
     });
 }
 
+async function salvarPontuacao(nome, erros) {
+    try {
+        const response = await fetch('backend/save_score.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ nomeJogador: nome, erros: erros })
+        });
+        const resultado = await response.json();
+        if (resultado.status === 'sucesso') {
+            console.log('Pontuação salva com sucesso!');
+        } else {
+            console.error('Falha ao salvar pontuação:', resultado.mensagem);
+        }
+    } catch (error) {
+        console.error('Erro de conexão ao salvar pontuação:', error);
+    }
+}
+
 function exibirPalavra() {
     palavraContainer.innerHTML = '';
 
     palavraSorteada.split('').forEach(letra => {
         const spanLetra = document.createElement('span');
         spanLetra.className = 'letra';
-
         if (letrasCorretas.includes(letra)) {
             spanLetra.textContent = letra;
         } else {
@@ -63,10 +83,10 @@ function exibirPalavra() {
 async function iniciarJogo() {
     try {
         const response = await fetch('backend/catch_word.php');
-        if (!response.ok) {
-            throw new Error('Não foi possível buscar uma nova palavra.');
-        }
+        if (!response.ok) throw new Error('Não foi possível buscar uma nova palavra.');
         const data = await response.json();
+
+        console.log(`Palavra sorteada: ${data.palavra} (Categoria: ${data.categoria})`);
 
         palavraSorteada = data.palavra;
         categoriaSorteada = data.categoria;
@@ -88,10 +108,10 @@ async function iniciarJogo() {
     }
 }
 
-
 function verificarFimDeJogo() {
     const vitoria = palavraSorteada.split('').every(letra => letrasCorretas.includes(letra));
     if (vitoria) {
+        salvarPontuacao(nomeJogador, tentativasErradas);
         mensagemTexto.textContent = `Parabéns! Você venceu! A palavra era "${palavraSorteada}".`;
         desabilitarTeclado();
         btnReiniciar.style.display = 'block';
@@ -104,7 +124,6 @@ function verificarFimDeJogo() {
         desabilitarTeclado();
         btnReiniciar.style.display = 'block';
     }
-
 }
 
 function desabilitarTeclado() {

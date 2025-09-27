@@ -19,8 +19,6 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
-    width: 80%;
-    max-width: 700px;
 }
 
 h1 {
@@ -105,7 +103,7 @@ h1 {
     font-size: 1rem;
     border-radius: 5px;
     border: none;
-    background-color: #28a745; /* Verde */
+    background-color: #28a745;
     color: white;
     cursor: pointer;
     margin-top: 10px;
@@ -125,4 +123,56 @@ h1 {
 
 .parte-forca.visivel {
     display: block;
+}
+
+/* ================================================== */
+/*                 MENU PRINCIPAL                     */
+/* ================================================== */
+
+.player-name-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+#nome-jogador {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.main-menu {
+    margin-top: 50px;
+}
+
+.main-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.main-menu li {
+    margin-bottom: 15px;
+}
+
+.main-menu a {
+    display: block;
+    padding: 15px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.main-menu a:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.main-menu a.disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+    transform: none;
 }
