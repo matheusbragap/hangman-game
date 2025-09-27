@@ -10,7 +10,7 @@ Este é um jogo da forca completo que inclui:
 - **Sistema de pontuação** baseado no número de erros
 - **Ranking de jogadores** com pontuações acumuladas
 - **Categorias de palavras** organizadas no banco de dados
-- **Área administrativa** para cadastrar novas palavras
+- **Área de Cadastro** para cadastrar novas palavras
 - **Desenho da forca** que se completa a cada erro
 - **Salvamento automático** do nome do jogador
 
@@ -18,8 +18,8 @@ Este é um jogo da forca completo que inclui:
 
 ### Pré-requisitos
 
-- XAMPP (Apache + MySQL + PHP)
-- Navegador web moderno
+- XAMPP (Apache + MySQL)
+- Navegador web
 
 ### Passo a Passo
 
@@ -28,7 +28,7 @@ Este é um jogo da forca completo que inclui:
 1. Acesse o site oficial: [https://www.apachefriends.org/](https://www.apachefriends.org/)
 2. Baixe a versão mais recente do XAMPP para Windows
 3. Execute o instalador e siga as instruções
-4. Instale no diretório padrão: `C:\xampp`
+4. Instale no diretório padrão (já é instalado normalmente)
 
 #### 2. Configurar o Projeto
 
@@ -42,25 +42,18 @@ Este é um jogo da forca completo que inclui:
 1. Abra o **XAMPP Control Panel**
 2. Inicie o serviço **Apache** (clique em "Start")
 3. Inicie o serviço **MySQL** (clique em "Start")
-4. Verifique se ambos estão com status "Running" (verde)
+4. Verifique se ambos estão com actions "Stop", e em module com a cor "verde"
 
-#### 4. Configurar o Banco de Dados
+![XAMPP Control Panel](others/xampp.png)
 
-**O banco de dados será criado automaticamente** junto com as tabelas e dados iniciais ao abrir o jogo pela primeira vez no `index.php`.
-
-**⚠️ Importante:** Caso não crie automaticamente ou dê algum erro/falha, verifique se não existe nenhum database chamado `hangman` no seu MySQL. Se existir, exclua-o e tente novamente acessar o jogo.
-
-Para verificar:
-1. Acesse: [http://localhost/phpmyadmin](http://localhost/phpmyadmin)
-2. Veja se existe um banco chamado `hangman` na lista à esquerda
-3. Se existir e estiver causando problemas, exclua-o
-4. Acesse novamente o jogo para que seja recriado automaticamente
-
-#### 5. Acessar o Jogo
+#### 4. Acessar o Jogo
 
 1. Abra seu navegador
 2. Acesse: **[http://localhost/hangman/index.php](http://localhost/hangman/index.php)**
 3. Digite seu nome e comece a jogar!
+
+**O banco de dados será criado automaticamente** junto com as tabelas e dados iniciais ao abrir o jogo pela primeira vez.
+
 
 ## 🎯 Como Jogar
 
@@ -74,30 +67,6 @@ Para verificar:
    - 1 erro = 5 pontos
    - 2 erros = 4 pontos
    - ... e assim por diante
-
-## 📁 Estrutura do Projeto
-
-```
-hangman-game/
-├── README.md             # Documentação do projeto
-├── admin.php             # Área administrativa
-├── game.php              # Página do jogo
-├── index.php             # Página inicial/menu
-├── ranking.php           # Página de ranking
-├── backend/
-│   ├── add_word.php      # Processar cadastro de palavras
-│   ├── catch_word.php    # API para buscar palavras
-│   ├── config.php        # Configuração centralizada do banco
-│   └── save_score.php    # API para salvar pontuações
-├── css/
-│   └── style.css         # Estilos do projeto
-├── docs/
-│   ├── proposal.md       # Proposta do projeto
-│   └── structure.md      # Documentação da estrutura
-└── js/
-    ├── menu.js           # Controle do menu
-    └── script.js         # Lógica principal do jogo
-```
 
 ## 🔧 Funcionalidades Administrativas
 
@@ -120,14 +89,33 @@ Acesse **[http://localhost/hangman/admin.php](http://localhost/hangman/admin.php
 - **Banco de Dados:** MySQL
 - **Servidor:** Apache (via XAMPP)
 
-## 📞 Suporte
+## �️ Soluções de Erros
+
+### Problemas com Banco de Dados
+
+**⚠️ Importante:** Caso o banco não seja criado automaticamente ou dê algum erro/falha:
+
+1. Verifique se não existe nenhum database chamado `hangman` no seu MySQL
+2. Se existir, exclua-o e tente novamente acessar o jogo
+3. Para verificar:
+   - Acesse: [http://localhost/phpmyadmin](http://localhost/phpmyadmin)
+   - Veja se existe um banco chamado `hangman` na lista à esquerda
+   - Se existir e estiver causando problemas, exclua-o
+   - Acesse novamente o jogo para que seja recriado automaticamente
+
+### Outros Problemas Comuns
 
 Se encontrar algum problema durante a instalação:
 
-1. Verifique se Apache e MySQL estão rodando no XAMPP
+1. Verifique se Apache e MySQL estão rodando no XAMPP (status verde)
 2. Confirme se o banco de dados foi criado corretamente
 3. Verifique se o projeto está na pasta correta: `C:\xampp\htdocs\hangman\`
 4. Teste o acesso ao PhpMyAdmin: [http://localhost/phpmyadmin](http://localhost/phpmyadmin)
+5. Certifique-se de que não há conflitos de porta (Apache na 80, MySQL na 3306)
+
+### Dica Importante
+
+**🔄 Para qualquer alteração nos arquivos, sempre recarregue/reinicie a página web** pressionando `F5` ou `Ctrl + F5` para garantir que as mudanças sejam aplicadas corretamente.
 
 ---
 
