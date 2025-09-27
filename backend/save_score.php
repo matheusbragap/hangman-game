@@ -30,15 +30,9 @@ $score = max(value: 0, values: 6 - $erros);
 /*               CONEXÃO BANCO                        */
 /* ================================================== */
 
-$host = 'localhost';
-$dbname = 'hangman';
-$user = 'root';
-$pass = '';
+require_once 'config.php';
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
     $sql = "INSERT INTO ranking (player_name, score) VALUES (?, ?)";
     
     $stmt = $pdo->prepare($sql);

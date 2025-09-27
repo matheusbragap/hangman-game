@@ -3,15 +3,9 @@
 /*               CONFIGURAÇÃO BANCO                   */
 /* ================================================== */
 
-$host = 'localhost';
-$dbname = 'hangman';
-$user = 'root';
-$pass = '';
+require_once 'backend/config.php';
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
     $stmt = $pdo->query("SELECT id, name FROM categories ORDER BY name");
     $categorias = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

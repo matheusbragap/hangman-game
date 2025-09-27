@@ -20,15 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     /*               CONEXÃO BANCO                        */
     /* ================================================== */
     
-    $host = 'localhost';
-    $dbname = 'hangman';
-    $user = 'root';
-    $pass = '';
+    require_once 'config.php';
 
     try {
-        $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
         $sql = "INSERT INTO words (name, id_categories) VALUES (?, ?)";
         $stmt = $pdo->prepare($sql);
 
