@@ -11,7 +11,11 @@
 <body>
 
     <div class="container">
-        <h1>Jogo da Forca</h1>
+        <div class="game-header">
+            <a href="index.php" id="btn-voltar">← Voltar ao Menu</a>
+            <h1>Hangman</h1>
+            <div class="spacer"></div> <!-- Spacer para centralizar o título -->
+        </div>
 
         <div id="jogo">
             <div id="forca-container">

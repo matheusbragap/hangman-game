@@ -13,7 +13,7 @@
             <input type="text" id="nome-jogador" placeholder="Digite seu nome para o ranking" maxlength="15">
         </div>
 
-        <h1>Jogo da Forca</h1>
+        <h1>Hangman</h1>
 
         <nav class="main-menu">
             <ul>

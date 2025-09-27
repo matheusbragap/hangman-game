@@ -86,7 +86,7 @@ async function iniciarJogo() {
         if (!response.ok) throw new Error('Não foi possível buscar uma nova palavra.');
         const data = await response.json();
 
-        console.log(`Palavra sorteada: ${data.palavra} (Categoria: ${data.categoria})`);
+        // console.log(`Palavra sorteada: ${data.palavra} (Categoria: ${data.categoria})`);
 
         palavraSorteada = data.palavra;
         categoriaSorteada = data.categoria;
