@@ -1,11 +1,11 @@
 # Proposta do Trabalho
 
 Trabalho de Front end e Modelagem de app para internet:
-Qtd de pessoas: 6
+Quantidade máxima de pessoas: 6
 Prazo de entrega: 26/09 (SEXTA-FEIRA)
 Mínimo de palavras: 100
 Mínimo de letras: 4
-Qtd de partes no boneco: 5
+Quantidade de partes no boneco: 5
 Entregar código fonte do jogo
 Linguagens: PHP e JavaScript
 Estrutura: HTML
