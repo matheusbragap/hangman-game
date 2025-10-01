@@ -1,3 +1,8 @@
+# 💯 Participantes
+
+Arlisson Nascimento dos Santos - 04051565
+Matheus Braga Pereira - 04177377
+
 # 🎮 Jogo da Forca
 
 Um jogo da forca interativo desenvolvido em PHP, JavaScript, HTML e CSS com sistema de ranking e banco de dados MySQL.
