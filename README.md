@@ -1,7 +1,7 @@
 # 💯 Participantes
 
-Arlisson Nascimento dos Santos - 04051565
-Matheus Braga Pereira - 04177377
+- Arlisson Nascimento dos Santos - 04051565
+- Matheus Braga Pereira - 04177377
 
 # 🎮 Jogo da Forca
 
